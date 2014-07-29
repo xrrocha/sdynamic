@@ -36,8 +36,10 @@ Intellij Idea users get the added bonus of Yaml literal syntax highlighting and 
 Yeah, why? And what about type-safety? ;-)
 
 Like many such small utilities, ```SDynamic``` was born of a personal itch to scratch. I've needed to write numerous unit
-tests requiring lots of structured (but otherwise *volatile*) data. Creating case classes nesting other case classes and
-then writing long object literal expressions for them quickly grows tedious and cumbersome:
+tests requiring lots of structured (but otherwise *volatile*) data.
+
+Creating case classes nesting other case classes and then writing long object literal expressions for them quickly grows
+tedious and cumbersome:
 
 ```scala
 case class Country(name: String, currency: String, population: Double,
