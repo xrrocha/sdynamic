@@ -152,7 +152,7 @@ Let's see:
 </table>
 
 To keep formatting simpler (as well as to make the comparison somewhat more fair) I've placed each Yaml attribute on a
-separate line. Yaml is a superset of JSON.
+separate line (which wasn't strictly necessary as Yaml is a superset of JSON).
 
 Yaml minimizes punctuation:
 
@@ -224,8 +224,7 @@ object Example extends App {
 
   val out = new java.io.FileOutputStream("src/test/resources/countries.html")
   out.write(pageHtml.getBytes("UTF-8"))
-  out.flush()
-  out.close()
+  out.flush(); out.close()
 }
 
 // Added bonus to have IntelliJ highlight and validate HTML islands
