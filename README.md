@@ -1,8 +1,14 @@
 # Fun with Scala Dynamic, macros and Yaml #
 
-```SDynamic``` is a small utility leveraging Scala's [```Dynamic```](http://www.scala-lang.org/api/2.11.2/#scala.Dynamic)
-trait, [string interpolation](http://docs.scala-lang.org/overviews/core/string-interpolation.html) and (Snake)
-[Yaml](https://code.google.com/p/snakeyaml/) to quickly improvise and reference untyped object graphs:
+```SDynamic``` is a small utility to quickly improvise and reference untyped object literals.
+This utility leverages Scala's:
+
+- [```Dynamic```](http://www.scala-lang.org/api/2.11.2/#scala.Dynamic) trait
+- [String interpolation](http://docs.scala-lang.org/overviews/core/string-interpolation.html)
+- [Macros](http://docs.scala-lang.org/overviews/macros/overview.html)
+
+The serialization language used to enunciate object graphs is [Yaml](http://en.wikipedia.org/wiki/YAML)
+(in its [SnakeYaml](https://code.google.com/p/snakeyaml/) variety).
 
 ```scala
 // Look ma: no intervening case classes!
@@ -151,10 +157,10 @@ Let's see:
   </tr>
 </table>
 
-To keep formatting simpler (as well as to make the comparison somewhat more fair) I've placed each Yaml attribute on a
+To keep formatting simpler, as well as to make the comparison somewhat more fair, I've placed each Yaml attribute on a
 separate line (which wasn't strictly necessary as Yaml is a superset of JSON).
 
-Yaml minimizes punctuation:
+Yaml minimizes punctuation while enhancing readability:
 
 - No need to enclose property values or (the horror!) property *names* in quotation marks
 - No need to separate list elements with commas (or enclosing them in brackets) when using multi-line mode
