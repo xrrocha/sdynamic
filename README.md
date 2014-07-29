@@ -40,7 +40,8 @@ tests requiring lots of structured (but otherwise *volatile*) data. Creating cas
 then writing long object literal expressions for them quickly grows tedious and cumbersome:
 
 ```scala
-case class Country(name: String, currency: String, population: Double, motto: String, languages: Seq[String])
+case class Country(name: String, currency: String, population: Double,
+                   motto: String, languages: Seq[String])
 // Wrappers, parens, quotes, commas. Oh my!
 val naftaCountries = Seq(
 Country(
