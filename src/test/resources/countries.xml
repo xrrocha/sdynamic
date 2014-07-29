@@ -1,0 +1,30 @@
+<countries>
+    <country>
+        <name>USA</name>
+        <currency>USD</currency>
+        <population>313.9</population>
+        <motto>In God We Trust</motto>
+        <languages>
+            <language>English</language>
+        </languages>
+    </country>
+    <country>
+        <name>Canada</name>
+        <currency>CAD</currency>
+        <population>34.9</population>
+        <motto>A Mari Usque ad Mare</motto>
+        <languages>
+            <language>English</language>
+            <language>French</language>
+        </languages>
+    </country>
+    <country>
+        <name>Mexico</name>
+        <currency>MXN</currency>
+        <population>116.1</population>
+        <motto>Patria, Libertad, Trabajo y Cultura</motto>
+        <languages>
+            <language>Spanish</language>
+        </languages>
+    </country>
+</countries>
