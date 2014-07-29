@@ -18,7 +18,8 @@ assert(naftaCountries(1).languages.toList == Seq("English", "French"))
 ```
 
 The serialization language used to enunciate object graphs is [Yaml](http://en.wikipedia.org/wiki/YAML)
-(in its [SnakeYaml](https://code.google.com/p/snakeyaml/) variety).
+(in its [SnakeYaml](https://code.google.com/p/snakeyaml/) variety). Object-like property manipulation is
+based on Scala's [```Dynamic```](http://www.scala-lang.org/api/2.11.2/#scala.Dynamic) trait.
 
 The ```dyaml``` string prefix provides a convenient notation while ensuring compile-time Yaml well-formedness via a
 simple macro.
@@ -26,12 +27,6 @@ simple macro.
 Intellij Idea users get the added bonus of Yaml literal syntax highlighting and edit-time validation:
 
 ![dyaml](src/test/resources/dyaml.png)
-
-This utility leverages Scala's:
-
-- [```Dynamic```](http://www.scala-lang.org/api/2.11.2/#scala.Dynamic) trait
-- [String interpolation](http://docs.scala-lang.org/overviews/core/string-interpolation.html)
-- [Macros](http://docs.scala-lang.org/overviews/macros/overview.html)
 
 ## Why on Earth? ##
 
