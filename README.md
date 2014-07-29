@@ -80,7 +80,7 @@ Let's see:
     <th>Example</th>
   </tr>
   <tr>
-    <td align="center"><b>Yaml</b></td>
+    <td align="center"><b>Yaml</b><br>(Mkay)</td>
     <td><pre><code>- name: USA
   currency: USD
   population: 313.9
@@ -98,7 +98,7 @@ Let's see:
   languages: [ Spanish ]</code></pre></td>
   </tr>
   <tr>
-    <td align="center"><b>JSON</b></td>
+    <td align="center"><b>JSON</b><br>(Uff!)</td>
     <td><pre><code>[{"name": "USA",
   "currency": "USD",
   "population": 313.9,
@@ -117,7 +117,7 @@ Let's see:
 ]</code></pre></td>
   </tr>
   <tr>
-    <td align="center"><b>XML</b></td>
+    <td align="center"><b>XML</b><br>(Ugh!)</td>
     <td><pre><code>&lt;countries&gt;
   &lt;country&gt;
     &lt;name&gt;USA&lt;/name&gt;
