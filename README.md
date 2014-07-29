@@ -7,9 +7,9 @@ trait, [string interpolation](http://docs.scala-lang.org/overviews/core/string-i
 ```scala
 // Look ma: no intervening case classes!
 val naftaCountries = dyaml"""
-    |- { name: USA,  currency: USD, population: 313.9, motto: In God We Trust, languages: [ English ] }
-    |- { name: Canada, currency: CAD, population: 34.9, motto: A Mari Usque ad Mare, languages: [ English, French ] }
-    |- { name: Mexico, currency: MXN, population: 116.1, motto: 'Patria, Libertad, Trabajo y Cultura', languages: [ Spanish ] }
+  |- { name: USA,  currency: USD, population: 313.9, motto: In God We Trust, languages: [ English ] }
+  |- { name: Canada, currency: CAD, population: 34.9, motto: A Mari Usque ad Mare, languages: [ English, French ] }
+  |- { name: Mexico, currency: MXN, population: 116.1, motto: 'Patria, Libertad, Trabajo y Cultura', languages: [ Spanish ] }
   """.toList
 assert(naftaCountries.length == 3)
 assert(naftaCountries(0).name == "USA")
@@ -73,14 +73,15 @@ Yeah! Why not JSON? Or XML?
 
 Let's see:
 
+
 <table border="1">
   <tr>
-    <th>Yaml</th>
-    <th>JSON</th>
-    <th>XML</th>
+    <th>Language</th>
+    <th>Example</th>
   </tr>
   <tr>
-    <td valign="top"><pre>- name: USA
+    <td align="center"><b>Yaml</b></td>
+    <td><pre><code>- name: USA
   currency: USD
   population: 313.9
   motto: In God We Trust
@@ -94,8 +95,11 @@ Let's see:
   currency: MXN
   population: 116.1
   motto: Patria, Libertad, Trabajo y Cultura
-  languages: [ Spanish ]</pre>
-    <td valign="top"><pre>[{"name": "USA",
+  languages: [ Spanish ]</code></pre></td>
+  </tr>
+  <tr>
+    <td align="center"><b>JSON</b></td>
+    <td><pre><code>[{"name": "USA",
   "currency": "USD",
   "population": 313.9,
   "motto": "In God We Trust",
@@ -110,8 +114,11 @@ Let's see:
   "population": 116.1,
   "motto": "Patria, Libertad, Trabajo y Cultura",
   "languages": [ "Spanish" ] }
-]</pre></td>
-    <td valign="top"><pre>&lt;countries&gt;
+]</code></pre></td>
+  </tr>
+  <tr>
+    <td align="center"><b>XML</b></td>
+    <td><pre><code>&lt;countries&gt;
   &lt;country&gt;
     &lt;name&gt;USA&lt;/name&gt;
     &lt;currency&gt;USD&lt;/currency&gt;
@@ -140,12 +147,12 @@ Let's see:
       &lt;language&gt;Spanish&lt;/language&gt;
     &lt;/languages&gt;
   &lt;/country&gt;
-&lt;/countries&gt;</pre></td>
+&lt;/countries&gt;</code></pre></td>
   </tr>
 </table>
 
 To keep formatting simpler (as well as to make the comparison somewhat more fair) I've placed each Yaml attribute on a
-separate line.
+separate line. Yaml is a superset of JSON.
 
 Yaml minimizes punctuation:
 
@@ -155,7 +162,7 @@ Yaml minimizes punctuation:
 
 # Example #
 
-The example below builds the following HTML page:
+The example below builds the following HTML content:
 
 ![countries](src/test/resources/countries.png)
 
