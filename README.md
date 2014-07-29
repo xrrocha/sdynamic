@@ -176,6 +176,7 @@ president: !!net.xrrocha.example.Person # Look ma: an old-fashioned Java bean
   - firstName: Jorge
   - middleName: Mario
   - lastName: Bergolio
+  - nomeDeGuerre: Francisco
 ```
 
 # Example #
