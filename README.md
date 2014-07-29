@@ -80,9 +80,7 @@ Let's see:
     <th>XML</th>
   </tr>
   <tr>
-    <td><pre>
-    ```yaml
-- name: USA
+    <td valign="top"><pre>- name: USA
   currency: USD
   population: 313.9
   motto: In God We Trust
@@ -97,10 +95,7 @@ Let's see:
   population: 116.1
   motto: Patria, Libertad, Trabajo y Cultura
   languages: [ Spanish ]</pre>
-    ```
-    <td>
-    ```json<pre>
-[{"name": "USA",
+    <td valign="top"><pre>[{"name": "USA",
   "currency": "USD",
   "population": 313.9,
   "motto": "In God We Trust",
@@ -115,11 +110,8 @@ Let's see:
   "population": 116.1,
   "motto": "Patria, Libertad, Trabajo y Cultura",
   "languages": [ "Spanish" ] }
-]```</pre>
-    </td>
-    <td>
-    ```xml<pre>
-&lt;countries&gt;
+]</pre></td>
+    <td valign="top"><pre>&lt;countries&gt;
   &lt;country&gt;
     &lt;name&gt;USA&lt;/name&gt;
     &lt;currency&gt;USD&lt;/currency&gt;
@@ -148,10 +140,7 @@ Let's see:
       &lt;language&gt;Spanish&lt;/language&gt;
     &lt;/languages&gt;
   &lt;/country&gt;
-&lt;/countries&gt;```</pre>
-    </td>
-    <td>
-    </td>
+&lt;/countries&gt;</pre></td>
   </tr>
 </table>
 
