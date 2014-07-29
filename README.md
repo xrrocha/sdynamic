@@ -163,19 +163,19 @@ Let's see:
 
 Yaml minimizes punctuation while enhancing readability:
 
-- No need to enclose property values or (the horror!) property *names* in quotation marks
+- No need to enclose property values or (the horror!) *property names* in quotation marks
 - No need to separate list elements with commas or enclosing them in brackets when using multi-line mode
 - No need to verbosely mark the beginning and end of each property
 
 Additionally, SnakeYaml makes it possible to insert "true" objects that can then be referenced in code:
 
 ```yaml
-name: Cuba
-languages: [ Spanish ]
+name: Vatican
+languages: [ Latin, Italian ]
 president: !!net.xrrocha.example.Person # Look ma: an old-fashioned Java bean
-  - firstName: Fidel
-  - lastName: Castro
-  - gender: MALE
+  - firstName: Jorge
+  - middleName: Mario
+  - lastName: Bergolio
 ```
 
 # Example #
