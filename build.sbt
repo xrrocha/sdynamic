@@ -20,6 +20,7 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.yaml" % "snakeyaml" % "1.13",
+  "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.2",
   "com.typesafe.scala-logging" %% "scala-logging-slf4j" % "2.1.2",
   "org.slf4j" % "slf4j-log4j12" % "1.7.7",
   "org.scalatest" %% "scalatest" % "2.2.0" % "test",
