@@ -44,25 +44,25 @@ case class Country(name: String, currency: String, population: Double,
                    motto: String, languages: Seq[String])
 // Wrappers, parens, quotes, commas. Oh my!
 val naftaCountries = Seq(
-Country(
-  name = "USA",
-  currency = "UDS",
-  population = 313.9,
-  motto = "In God We Trust",
-  languages = Seq("English")),
-Country(
-  name = "Canada",
-  currency = "CAD",
-  population = 34.9,
-  motto = "A Mari Usque ad Mare",
-  languages = Seq("English", "French")),
-Country(
-  name = "Mexico",
-  currency = "MXN",
-  population = 116.1,
-  motto = "Patria, Libertad, Trabajo y Cultura",
-  languages = Seq("Spanish"))
-)
+    Country(
+      name = "USA",
+      currency = "UDS",
+      population = 313.9,
+      motto = "In God We Trust",
+      languages = Seq("English")),
+    Country(
+      name = "Canada",
+      currency = "CAD",
+      population = 34.9,
+      motto = "A Mari Usque ad Mare",
+      languages = Seq("English", "French")),
+    Country(
+      name = "Mexico",
+      currency = "MXN",
+      population = 116.1,
+      motto = "Patria, Libertad, Trabajo y Cultura",
+      languages = Seq("Spanish"))
+    )
 ```
 
 :point_up: The astute reader will notice the above could be written sàns named parameters. For nested structures with
