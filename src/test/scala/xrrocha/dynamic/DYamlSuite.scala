@@ -54,9 +54,12 @@ class DYamlSuite extends FunSuite {
 
   test("example") {
     val naftaCountries = dyaml"""
-      |- { name: USA,  currency: USD, population: 313.9, motto: In God We Trust, languages: [ English ] }
-      |- { name: Canada, currency: CAD, population: 34.9, motto: A Mari Usque ad Mare, languages: [ English, French ] }
-      |- { name: Mexico, currency: MXN, population: 116.1, motto: 'Patria, Libertad, Trabajo y Cultura', languages: [ Spanish ] }
+      |- { name: USA,  currency: USD, population: 313.9,
+      |    motto: In God We Trust, languages: [ English ] }
+      |- { name: Canada, currency: CAD, population: 34.9,
+      |    motto: A Mari Usque ad Mare, languages: [ English, French ] }
+      |- { name: Mexico, currency: MXN, population: 116.1,
+      |    motto: 'Patria, Libertad, Trabajo y Cultura', languages: [ Spanish ] }
     """.toList
 
     assert(naftaCountries.length == 3)

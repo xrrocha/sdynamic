@@ -1,14 +1,17 @@
 # Fun with Scala Dynamic, macros and Yaml #
 
-```SDynamic``` is a small utility to quickly improvise untyped object literals and then manipulate
+```SDynamic``` is a small utility to quickly improvise untyped object literals and then treat
 them as if they were Scala objects.
 
 ```scala
 // Look ma: no intervening case classes!
 val naftaCountries = dyaml"""
-  |- { name: USA,  currency: USD, population: 313.9, motto: In God We Trust, languages: [ English ] }
-  |- { name: Canada, currency: CAD, population: 34.9, motto: A Mari Usque ad Mare, languages: [ English, French ] }
-  |- { name: Mexico, currency: MXN, population: 116.1, motto: 'Patria, Libertad, Trabajo y Cultura', languages: [ Spanish ] }
+  |- { name: USA,  currency: USD, population: 313.9,
+  |    motto: In God We Trust, languages: [ English ] }
+  |- { name: Canada, currency: CAD, population: 34.9,
+  |    motto: A Mari Usque ad Mare, languages: [ English, French ] }
+  |- { name: Mexico, currency: MXN, population: 116.1,
+  |    motto: 'Patria, Libertad, Trabajo y Cultura', languages: [ Spanish ] }
   """.toList
 assert(naftaCountries.length == 3)
 assert(naftaCountries(0).name == "USA")
@@ -21,8 +24,8 @@ The serialization language used to enunciate object graphs is [Yaml](http://en.w
 (in its [SnakeYaml](https://code.google.com/p/snakeyaml/) variety). Object-like property manipulation is
 based on Scala's [```Dynamic```](http://www.scala-lang.org/api/2.11.2/#scala.Dynamic) trait.
 
-The ```dyaml``` string prefix provides a convenient notation while ensuring compile-time Yaml well-formedness via a
-simple macro.
+The ```dyaml``` string interpolator provides a convenient notation while ensuring Yaml well-formedness
+at compile-time via a simple macro.
 
 Intellij Idea users get the added bonus of Yaml literal syntax highlighting and edit-time validation:
 
@@ -30,7 +33,7 @@ Intellij Idea users get the added bonus of Yaml literal syntax highlighting and 
 
 ## Why on Earth? ##
 
-Yeah! And what about type-safety? ;-)
+Yeah, why? And what about type-safety? ;-)
 
 Like many such small utilities, ```SDynamic``` was born of a personal itch to scratch. I've needed to write numerous unit
 tests requiring lots of structured (but otherwise *volatile*) data. Creating case classes nesting other case classes and
@@ -38,6 +41,7 @@ then writing long object literal expressions for them quickly grows tedious and 
 
 ```scala
 case class Country(name: String, currency: String, population: Double, motto: String, languages: Seq[String])
+// Wrappers, parens, quotes, commas. Oh my!
 val naftaCountries = Seq(
 Country(
   name = "USA",
@@ -60,7 +64,7 @@ Country(
 )
 ```
 
-:raised_hands: The astute reader will notice the above could be written sàns named parameters. For nested structures with
+:point_up: The astute reader will notice the above could be written sàns named parameters. For nested structures with
 more than just a few fields, however, positional parameters in object literals quickly become a liability as they obscure
 value-to-field attribution.
 
@@ -154,14 +158,22 @@ Let's see:
   </tr>
 </table>
 
-To keep formatting simpler, as well as to make the comparison somewhat more fair, I've placed each Yaml attribute on a
-separate line (which wasn't strictly necessary as Yaml is a superset of JSON).
-
 Yaml minimizes punctuation while enhancing readability:
 
 - No need to enclose property values or (the horror!) property *names* in quotation marks
-- No need to separate list elements with commas (or enclosing them in brackets) when using multi-line mode
+- No need to separate list elements with commas or enclosing them in brackets when using multi-line mode
 - No need to verbosely mark the beginning and end of each property
+
+Additionally, SnakeYaml makes it possible to insert "true" objects that can then be referenced in code:
+
+```yaml
+name: Cuba
+languages: [ Spanish ]
+president: !!net.xrrocha.example.Person # Look ma: an old-fashioned Java bean
+  - firstName: Fidel
+  - lastName: Castro
+  - gender: MALE
+```
 
 # Example #
 
