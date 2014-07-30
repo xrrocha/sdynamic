@@ -1,7 +1,7 @@
 # Fun with Scala Dynamic, macros and Yaml #
 
-```SDynamic```  is a small utility to quickly enter untyped object literals in Scala code
-and then treat resulting dynamic objects as if they were Scala objects.
+```SDynamic```  is a small utility to write untyped object literals in Scala
+and then treat dynamic results as if they were regular Scala objects.
 
 ```scala
 // Look ma: no intervening case classes!
@@ -27,7 +27,7 @@ based on Scala's [```Dynamic```](http://www.scala-lang.org/api/2.11.2/#scala.Dyn
 The ```dyaml``` string interpolator provides a convenient notation while ensuring Yaml well-formedness
 at compile-time via a simple macro.
 
-Intellij Idea users get the added bonus of Yaml literal syntax highlighting and edit-time validation:
+Intellij Idea users can get the added bonus of Yaml literal syntax highlighting and edit-time validation:
 
 ![dyaml](src/test/resources/dyaml.png)
 
