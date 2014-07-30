@@ -1,6 +1,15 @@
 package xrrocha.syaml
 
+import xrrocha.dynamic.{ScalaDynamic, JavaDynamic, SDynamic}
+
 import scala.util.parsing.combinator._
+
+object SYaml {
+
+  implicit class DYamlString(val sc: StringContext) extends AnyVal {
+    def syaml(args: Any*): SDynamic = ScalaDynamic(SYamlParser.parse(sc.s(args: _*).stripMargin.trim).get)
+  }
+}
 
 // Copied from:
 //   https://github.com/daltontf/scala-yaml/blob/master/src/main/scala/tfd/scala/yaml/YAMLParser.scala

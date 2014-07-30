@@ -2,6 +2,7 @@ package xrrocha.dynamic
 
 import org.scalatest.FunSuite
 import org.yaml.snakeyaml.Yaml
+import xrrocha.syaml.SYaml
 
 class DYamlSuite extends FunSuite {
   import xrrocha.dynamic.DYaml._
@@ -23,6 +24,37 @@ class DYamlSuite extends FunSuite {
       """
 
     assert(person.now.value.isInstanceOf[java.util.Date])
+
+    assert(person.name == "Alex")
+
+    assert(person.age.toString.toInt == 14)
+
+    val languageSkills: Seq[SDynamic] = person.languageSkills
+    assert(languageSkills.length == 3)
+    assert(languageSkills(0).language == "English")
+    assert(languageSkills(0).level == "advanced")
+
+    val hobbies: Map[String, SDynamic] = person.hobbies
+    assert(hobbies.size == 4)
+    assert(hobbies.keySet == Set("animé", "reading", "programming", "books"))
+    assert(hobbies("programming") == "uh, yeah")
+  }
+
+  test("SYaml-built Scala map is accessible through dynamic properties") {
+    import SYaml._
+    val person = syaml"""
+        |name: Alex
+        |age: 14
+        |languageSkills:
+        |  - { language: English,  level: advanced }
+        |  - { language: Spanish,  level: intermediate }
+        |  - { language: Japanese, level: basic }
+        |hobbies:
+        |  animé: a lot
+        |  reading: sure, on screen
+        |  programming: uh, yeah
+        |  books: when unavailable in e-format
+      """
 
     assert(person.name == "Alex")
 
