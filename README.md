@@ -33,6 +33,9 @@ Intellij Idea users can get the added bonus of Yaml literal syntax highlighting 
 
 A few blog entries describe this utility at http://blog.xrrocha.net/.
 
+In a small way, SDynamic relates to an old request first formulated in 2008:
+[Add support for YAML (like XML)](https://issues.scala-lang.org/browse/SI-993).
+
 ## Why on Earth? ##
 
 Yeah, why? And what about type-safety? ;-)
