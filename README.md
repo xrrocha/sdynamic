@@ -31,6 +31,8 @@ Intellij Idea users can get the added bonus of Yaml literal syntax highlighting 
 
 ![dyaml](src/test/resources/dyaml.png)
 
+A few blog entries describe this utility at http://blog.xrrocha.net/.
+
 ## Why on Earth? ##
 
 Yeah, why? And what about type-safety? ;-)
