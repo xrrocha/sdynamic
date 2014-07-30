@@ -1,7 +1,6 @@
 package xrrocha.syaml
 
 import scala.util.parsing.combinator._
-import scala.util.matching.Regex
 
 // Copied from:
 //   https://github.com/daltontf/scala-yaml/blob/master/src/main/scala/tfd/scala/yaml/YAMLParser.scala
