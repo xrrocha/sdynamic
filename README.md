@@ -1,7 +1,7 @@
 # Fun with Scala Dynamic, macros and Yaml #
 
-```SDynamic``` is a small utility to quickly improvise untyped object literals and then treat
-them as if they were Scala objects.
+```SDynamic```  is a small utility to quickly enter untyped object literals in Scala code
+and then treat resulting dynamic objects as if they were Scala objects.
 
 ```scala
 // Look ma: no intervening case classes!
