@@ -21,7 +21,7 @@ assert(naftaCountries(1).languages.toList == Seq("English", "French"))
 ```
 
 The serialization language used to enunciate object graphs is [Yaml](http://en.wikipedia.org/wiki/YAML)
-(in its [SnakeYaml](https://code.google.com/p/snakeyaml/) variety). Object-like property manipulation is
+(in its [SnakeYaml](https://code.google.com/p/snakeyaml/) incarnation). Object-like property manipulation is
 based on Scala's [```Dynamic```](http://www.scala-lang.org/api/2.11.2/#scala.Dynamic) trait.
 
 The ```dyaml``` string interpolator provides a convenient notation while ensuring Yaml well-formedness
