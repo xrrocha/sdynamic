@@ -173,10 +173,10 @@ Additionally, SnakeYaml makes it possible to insert "true" objects that can then
 name: Vatican
 languages: [ Latin, Italian ]
 president: !!net.xrrocha.example.Person # Look ma: an old-fashioned Java bean
-  - firstName: Jorge
-  - middleName: Mario
-  - lastName: Bergolio
-  - nomeDeGuerre: Francisco
+  firstName: Jorge
+  middleName: Mario
+  lastName: Bergolio
+  nomeDeGuerre: Francisco
 ```
 
 # Example #
