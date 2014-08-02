@@ -1,14 +1,12 @@
 package xrrocha.dynamic
 
 import org.scalatest.FunSuite
-import org.yaml.snakeyaml.Yaml
-import xrrocha.syaml.SYaml
 
 class DYamlSuite extends FunSuite {
   import xrrocha.dynamic.DYaml._
 
   test("SnakeYaml-built Java map is accessible through dynamic properties") {
-    val person = dyaml"""
+    val person = syaml"""
         |name: Alex
         |age: 14
         |languageSkills:
@@ -40,9 +38,9 @@ class DYamlSuite extends FunSuite {
     assert(hobbies("programming") == "uh, yeah")
   }
 
-  test("SYaml-built Scala map is accessible through dynamic properties") {
-    import SYaml._
-    val person = syaml"""
+  test("DYaml-built Scala map is accessible through dynamic properties") {
+    import xrrocha.dynamic.DYaml._
+    val person = dyaml"""
         |name: Alex
         |age: 14
         |languageSkills:
@@ -76,7 +74,7 @@ class DYamlSuite extends FunSuite {
     val name = "Mr. Anderson"
     val language = "English"
 
-    val neo = dyaml"{ id: $id, name: $name, languages: [ $language ]}"
+    val neo = syaml"{ id: $id, name: $name, languages: [ $language ]}"
 
     assert(neo.id == id)
     assert(neo.name == name)
@@ -85,7 +83,7 @@ class DYamlSuite extends FunSuite {
   }
 
   test("example") {
-    val naftaCountries = dyaml"""
+    val naftaCountries = syaml"""
       |- { name: USA,  currency: USD, population: 313.9,
       |    motto: In God We Trust, languages: [ English ] }
       |- { name: Canada, currency: CAD, population: 34.9,

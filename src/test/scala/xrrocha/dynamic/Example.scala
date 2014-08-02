@@ -3,7 +3,7 @@ package xrrocha.dynamic
 object Example extends App {
   import DYaml._
 
-  val countries = dyaml"""
+  val countries = syaml"""
     |- name: USA
     |  currency: USD
     |  population: 313.9

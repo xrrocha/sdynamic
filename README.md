@@ -24,17 +24,17 @@ The serialization language used to enunciate object graphs is [Yaml](http://en.w
 (in its [SnakeYaml](https://code.google.com/p/snakeyaml/) incarnation). Object-like property manipulation is
 based on Scala's [```Dynamic```](http://www.scala-lang.org/api/2.11.2/#scala.Dynamic) trait.
 
-The ```dyaml``` string interpolator provides a convenient notation while ensuring Yaml well-formedness
+The ```dyaml``` and ```syaml``` string interpolators provide a convenient notation while ensuring Yaml well-formedness
 at compile-time via a simple macro.
 
-Intellij Idea users can get the added bonus of Yaml literal syntax highlighting and edit-time validation:
+Intellij Idea users get the added bonus of Yaml literal syntax highlighting and edit-time validation:
 
 ![dyaml](src/test/resources/dyaml.png)
 
-A few blog entries describe this utility at http://blog.xrrocha.net/.
-
 In a small way, SDynamic relates to an old request first formulated in 2008:
 [SI-993: Add support for YAML (like XML)](https://issues.scala-lang.org/browse/SI-993).
+
+This utility is further described at http://blog.xrrocha.net/.
 
 ## Why on Earth? ##
 

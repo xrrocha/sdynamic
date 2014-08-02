@@ -1,12 +1,13 @@
 package xrrocha.syaml
 
 import org.scalatest.FunSuite
+import xrrocha.dynamic.DYamlParser
 
 // Copied from:
 //   https://github.com/daltontf/scala-yaml/blob/master/src/test/scala/tfd/scala/yaml/YAMLParserTest.scala
 
-class SSYamlParserSuite extends FunSuite {
-  import xrrocha.syaml.SYamlParser._
+class DYamlParserSuite extends FunSuite {
+  import DYamlParser._
 
   test("Builds empty inline map") {
     assert(Map() == parse("""{}""").get)
