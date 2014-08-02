@@ -259,6 +259,7 @@ object Html {
   implicit class HtmlString(val sc: StringContext) extends AnyVal {
     def html(args: Any*) = sc.s(args: _*).stripMargin.trim
   }
-}```
+}
+```
 
  
