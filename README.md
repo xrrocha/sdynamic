@@ -20,12 +20,12 @@ assert(naftaCountries(2).motto == "Patria, Libertad, Trabajo y Cultura")
 assert(naftaCountries(1).languages.toList == Seq("English", "French"))
 ```
 
-The serialization language used to enunciate object graphs is [Yaml](http://en.wikipedia.org/wiki/YAML)
-(in its [SnakeYaml](https://code.google.com/p/snakeyaml/) incarnation). Object-like property manipulation is
-based on Scala's [```Dynamic```](http://www.scala-lang.org/api/2.11.2/#scala.Dynamic) trait.
+The serialization language used to enunciate object graphs is [Yaml](http://en.wikipedia.org/wiki/YAML).
+Object-like property manipulation is based on Scala's
+[```Dynamic```](http://www.scala-lang.org/api/2.11.2/#scala.Dynamic) trait.
 
 The ```dyaml``` and ```syaml``` string interpolators provide a convenient notation while ensuring Yaml well-formedness
-at compile-time via a simple macro.
+at compile-time via a simple macro. (```syaml``` uses the [SnakeYAML parser](https://code.google.com/p/snakeyaml/)).
 
 Intellij Idea users get the added bonus of Yaml literal syntax highlighting and edit-time validation:
 
@@ -40,11 +40,11 @@ This utility is further described at http://blog.xrrocha.net/.
 
 Yeah, why? And what about type-safety? ;-)
 
-Like many such small utilities, ```SDynamic``` was born of a personal itch to scratch. I've needed to write numerous unit
+Like many such small utilities, ```SDynamic``` was born of a personal itch to scratch: I've needed to write numerous unit
 tests requiring lots of structured (but otherwise *volatile*) data.
 
-Creating case classes nesting other case classes and then writing long object literal expressions for them quickly grows
-tedious and cumbersome:
+Creating case classes nesting other case classes and then writing looong object literal expressions for them quickly
+grows tedious and cumbersome:
 
 ```scala
 case class Country(name: String, currency: String, population: Double,
@@ -172,18 +172,6 @@ Yaml minimizes punctuation while enhancing readability:
 - No need to separate list elements with commas or enclosing lists in brackets when using multi-line mode
 - No need to verbosely mark the beginning and end of each property
 
-Additionally, SnakeYaml makes it possible to insert "true" objects that can then be referenced in code:
-
-```yaml
-name: Vatican
-languages: [ Latin, Italian ]
-president: !!net.xrrocha.example.Person # Look ma: an old-fashioned Java bean
-  firstName:    Jorge
-  middleName:   Mario
-  lastName:     Bergolio
-  nomeDeGuerre: Francisco
-```
-
 # Example #
 
 The example below builds the following HTML content:
@@ -199,7 +187,9 @@ object Example extends App {
     |  currency: USD
     |  population: 313.9
     |  motto: In God We Trust
-    |  languages: [ English ]
+    |  languages:
+    |    - { name: English, comment: Unofficially official }
+    |    - { name: Spanish, comment: Widely spoken all over }
     |  flag: http://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/30px-Flag_of_the_United_States.svg.png
     |- name: Canada
     |  currency: CAD
@@ -207,7 +197,9 @@ object Example extends App {
     |  motto: |
     |    A Mari Usque ad Mare<br>
     |    (<i>From sea to sea, D'un océan à l'autre</i>)
-    |  languages: [ English, French ]
+    |  languages:
+    |    - { name: English, comment: 'Official, yes' }
+    |    - { name: French, comment: 'Officiel, oui' }
     |  flag: http://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Flag_of_Canada.svg/30px-Flag_of_Canada.svg.png
     |- name: Mexico
     |  currency: MXN
@@ -215,7 +207,9 @@ object Example extends App {
     |  motto: |
     |    Patria, Libertad, Trabajo y Cultura<br>
     |    (<i>Homeland, Freedom, Work and Culture</i>)
-    |  languages: [ Spanish ]
+    |  languages:
+    |    - { name: Spanish, comment: 'Oficial, sí' }
+    |    - { name: Zapoteco, comment: Dxandi' anja }
     |  flag: http://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/30px-Flag_of_Mexico.svg.png
   """.toList
 
@@ -225,7 +219,16 @@ object Example extends App {
           |  <td><img src="${country.flag}"></td>
           |  <td>${country.name}</td>
           |  <td>${country.motto}</td>
-          |  <td>${country.languages.toList mkString ", "}</td>
+          |  <td>
+          |    <ul>
+          |      ${
+                    country.languages.toList.map { lang =>
+                      s"<li>${lang.name}: ${lang.comment}</li>"
+                    }.
+                    mkString("\n")
+                 }
+          |    </ul>
+          |  </td>
           |</tr>
         """
 
@@ -248,15 +251,14 @@ object Example extends App {
 
   val out = new java.io.FileOutputStream("src/test/resources/countries.html")
   out.write(pageHtml.getBytes("UTF-8"))
-  out.flush(); out.close()
+  out.flush()
+  out.close()
 }
 
-// Added bonus to have IntelliJ highlight and validate HTML islands
 object Html {
   implicit class HtmlString(val sc: StringContext) extends AnyVal {
     def html(args: Any*) = sc.s(args: _*).stripMargin.trim
   }
-}
-```
+}```
 
  
